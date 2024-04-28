@@ -143,11 +143,11 @@ $conn->close();
           </div>
           <?php
             if (isset($_SESSION['email_used'])) {
-                echo "<p style='color:red;'>" . $_SESSION['email_used'] . "</p>";
+                echo "<p style='color:red; text-align:center;'>" . $_SESSION['email_used'] . "</p>";
                 unset($_SESSION['email_used']);
             }
             if (isset($_SESSION['login_error'])) {
-              echo "<p style='color:red;'>" . $_SESSION['login_error'] . "</p>";
+              echo "<p style='color:red; text-align:center;'>" . $_SESSION['login_error'] . "</p>";
               unset($_SESSION['login_error']);
           }
           ?>
