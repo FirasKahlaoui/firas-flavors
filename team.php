@@ -35,9 +35,6 @@
         right: -32px !important;
 
     }
-    .dropdown-item-highlight {
-    background-color: #FFD700;
-    }
     </style>
 </head>
 
@@ -98,23 +95,14 @@
                   if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true):
                   ?>
             <div class="nav-item dropdown">
-              <a
-                href="#"
-                class="nav-link dropdown-toggle"
-                data-bs-toggle="dropdown"
-              >
-                Profile
+              <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                  Profile
               </a>
-              <div class="dropdown-menu m-0">
-                <a class="dropdown-item"
-                  >Name:
-                  <?php echo $_SESSION['username']; ?></a
-                >
-                <a class="dropdown-item"
-                  >Email:
-                  <?php echo $_SESSION['email']; ?></a
-                >
-                <a href="logout.php" class="dropdown-item">Logout</a>
+              <div class="dropdown-menu dropdown-menu-end m-0">
+                  <a class="dropdown-item dropdown-item-highlight">Name: <?php echo $_SESSION['username']; ?></a>
+                  <a class="dropdown-item dropdown-item-highlight">Email: <?php echo $_SESSION['email']; ?></a>
+                  <a href="reservation.php" class="dropdown-item">My Reservations</a>
+                  <a href="logout.php" class="dropdown-item">Logout</a>
               </div>
             </div>
             <?php
