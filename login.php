@@ -143,14 +143,31 @@ $conn->close();
           </div>
           <?php
             if (isset($_SESSION['email_used'])) {
-                echo "<p style='color:red; text-align:center;'>" . $_SESSION['email_used'] . "</p>";
-                unset($_SESSION['email_used']);
+              echo "<p id='emailUsedMessage' style='color:red; text-align:center;'>" . $_SESSION['email_used'] . "</p>";
+              echo "
+              <script type='text/javascript'>
+                setTimeout(function() {
+                  var element = document.getElementById('emailUsedMessage');
+                  element.parentNode.removeChild(element);
+                }, 3000);
+              </script>
+              ";
+              unset($_SESSION['email_used']);
             }
+
             if (isset($_SESSION['login_error'])) {
-              echo "<p style='color:red; text-align:center;'>" . $_SESSION['login_error'] . "</p>";
+              echo "<p id='loginErrorMessage' style='color:red; text-align:center;'>" . $_SESSION['login_error'] . "</p>";
+              echo "
+              <script type='text/javascript'>
+                setTimeout(function() {
+                  var element = document.getElementById('loginErrorMessage');
+                  element.parentNode.removeChild(element);
+                }, 3000);
+              </script>
+              ";
               unset($_SESSION['login_error']);
-          }
-          ?>
+            }
+            ?>
           <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
             <div class="input-box">
               <input
