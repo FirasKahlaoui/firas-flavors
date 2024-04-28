@@ -11,46 +11,83 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+  die("Connection failed: " . $conn->connect_error);
 }
 
-// Check if form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get form data
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+// Check if registration form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
+  // Get form data
+  $firstname = $_POST['firstname'];
+  $lastname = $_POST['lastname'];
+  $email = $_POST['email'];
+  $password = $_POST['password'];
 
-    // Prepare a select statement to check if the email is already in use
-    $stmt = $conn->prepare("SELECT * FROM user WHERE Email = ?");
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
+  // Prepare a select statement to check if the email is already in use
+  $stmt = $conn->prepare("SELECT * FROM user WHERE Email = ?");
+  $stmt->bind_param("s", $email);
+  $stmt->execute();
+  $result = $stmt->get_result();
 
-    if ($result->num_rows > 0) {
-        $_SESSION['email_used'] = "Email is already in use";
+  if ($result->num_rows > 0) {
+    $_SESSION['email_used'] = "Email is already in use";
+  } else {
+    // Prepare an insert statement
+    $stmt = $conn->prepare("INSERT INTO user (FirstName, LastName, Email, Password) VALUES (?, ?, ?, ?)");
+
+    // Bind the variables to the prepared statement
+    $stmt->bind_param("ssss", $firstname, $lastname, $email, $password);
+
+    // Execute the statement
+    if ($stmt->execute()) {
+      // Redirect to the login form
+      echo "<script>location.href='login.php';</script>";
+      exit;
     } else {
-        // Prepare an insert statement
-        $stmt = $conn->prepare("INSERT INTO user (FirstName, LastName, Email, Password) VALUES (?, ?, ?, ?)");
-
-        // Bind the variables to the prepared statement
-        $stmt->bind_param("ssss", $firstname, $lastname, $email, $password);
-
-        // Execute the statement
-        if ($stmt->execute()) {
-            // Redirect to the login form
-            echo "<script>location.href='login.php';</script>";
-            exit;
-        } else {
-            echo "Error: " . $stmt->error;
-        }
+      echo "Error: " . $stmt->error;
     }
+  }
 
-    // Close the statement and the connection
-    $stmt->close();
-    $conn->close();
+  // Close the statement
+  $stmt->close();
 }
+
+// Check if login form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
+  // Get form data
+  $email = $_POST['email'];
+  $password = $_POST['password'];
+
+  // Prepare a select statement to check if the email exists and the password matches
+  $stmt = $conn->prepare("SELECT * FROM user WHERE Email = ?");
+  $stmt->bind_param("s", $email);
+  $stmt->execute();
+  $result = $stmt->get_result();
+
+  if ($result->num_rows > 0) {
+    $user = $result->fetch_assoc();
+    if ($password == $user['Password']) {
+      // Password matches, create session
+      $_SESSION['loggedin'] = true;
+      $_SESSION['username'] = $user['FirstName'];
+      $_SESSION['email'] = $user['Email'];
+      // Redirect to the index page
+      echo "<script>location.href='index.php';</script>";
+      exit;
+    } else {
+      // Password does not match
+      $_SESSION['login_error'] = "Invalid password";
+    }
+  } else {
+    // Email does not exist
+    $_SESSION['login_error'] = "Email does not exist";
+  }
+
+  // Close the statement
+  $stmt->close();
+}
+
+// Close the connection
+$conn->close();
 ?>
 
 <!-- Your HTML code here -->
@@ -109,31 +146,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "<p style='color:red;'>" . $_SESSION['email_used'] . "</p>";
                 unset($_SESSION['email_used']);
             }
+            if (isset($_SESSION['login_error'])) {
+              echo "<p style='color:red;'>" . $_SESSION['login_error'] . "</p>";
+              unset($_SESSION['login_error']);
+          }
           ?>
-          <div class="input-box">
-            <input
-              type="text"
-              class="input-field"
-              placeholder="Username or Email"
-            />
-            <i class="bx bx-user"></i>
-          </div>
-          <div class="input-box">
-            <input type="password" class="input-field" placeholder="Password" />
-            <i class="bx bx-lock-alt"></i>
-          </div>
-          <div class="input-box">
-            <input type="submit" class="submit" value="Sign In" />
-          </div>
-          <div class="two-col">
-            <div class="one">
-              <input type="checkbox" id="login-check" />
-              <label for="login-check"> Remember Me</label>
+          <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+            <div class="input-box">
+              <input
+                type="text"
+                name="email"
+                class="input-field"
+                placeholder="Username or Email"
+              />
+              <i class="bx bx-user"></i>
             </div>
-            <div class="two">
-              <label><a href="#">Forgot password?</a></label>
+            <div class="input-box">
+              <input type="password" name="password" class="input-field" placeholder="Password" />
+              <i class="bx bx-lock-alt"></i>
             </div>
-          </div>
+            <div class="input-box">
+              <input type="submit" class="submit" value="Sign In" name="login" />
+            </div>
+            <div class="two-col">
+              <div class="one">
+                <input type="checkbox" id="login-check" />
+                <label for="login-check"> Remember Me</label>
+              </div>
+              <div class="two">
+                <label><a href="#">Forgot password?</a></label>
+              </div>
+            </div>
+          </form>
         </div>
         <!------------------- registration form -------------------------->
         <div class="register-container" id="register">
@@ -187,7 +231,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <i class="bx bx-lock-alt"></i>
             </div>
             <div class="input-box">
-              <input type="submit" class="submit" value="Register" />
+            <input type="submit" class="submit" value="Register" name="register" />
             </div>
             <div class="two-col">
               <div class="one">

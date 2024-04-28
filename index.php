@@ -98,6 +98,7 @@
               <div class="dropdown-menu m-0">
                 <a class="dropdown-item">Name: <?php echo $_SESSION['username']; ?></a>
                 <a class="dropdown-item">Email: <?php echo $_SESSION['email']; ?></a>
+                <a href="logout.php" class="dropdown-item">Logout</a>
               </div>
             </div>
             <?php
