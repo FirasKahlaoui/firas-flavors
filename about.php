@@ -378,14 +378,14 @@
                 Contact
               </h4>
               <p class="mb-2">
-                <i class="fa fa-map-marker-alt me-3"></i>123 Street, New York,
-                USA
+                <i class="fa fa-map-marker-alt me-3"></i>123 Street, Ariana City,
+                Tunisia
               </p>
               <p class="mb-2">
-                <i class="fa fa-phone-alt me-3"></i>+012 345 67890
+                <i class="fa fa-phone-alt me-3"></i>+216 58627553
               </p>
               <p class="mb-2">
-                <i class="fa fa-envelope me-3"></i>info@example.com
+                <i class="fa fa-envelope me-3"></i>kahlaouifiras2017@gmail.com
               </p>
               <div class="d-flex pt-2">
                 <a class="btn btn-outline-light btn-social" href=""
@@ -440,21 +440,12 @@
           <div class="copyright">
             <div class="row">
               <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                &copy; <a class="border-bottom" href="#">Your Site Name</a>, All
-                Right Reserved.
-
-                <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                Designed By
-                <a class="border-bottom" href="https://htmlcodex.com"
-                  >HTML Codex</a
-                ><br /><br />
-                Distributed By
-                <a
-                  class="border-bottom"
-                  href="https://themewagon.com"
-                  target="_blank"
-                  >ThemeWagon</a
-                >
+                &copy; <a class="border-bottom" href="#">Fira's Flavors</a>, All
+                Right Reserved. Designed By Firas Kahlaoui
+                <!--<a class="border-bottom" href="https://htmlcodex.com"> -->
+                </a>
+                <br /><br />
+                Distributed By Firas Kahlaoui<!--<a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a>-->
               </div>
               <div class="col-md-6 text-center text-md-end">
                 <div class="footer-menu">
@@ -469,7 +460,6 @@
         </div>
       </div>
       <!-- Footer End -->
-
       <!-- Back to Top -->
       <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"
         ><i class="bi bi-arrow-up"></i
