@@ -102,7 +102,7 @@ $conn->close();
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/login.css" />
-    <title>Login & Registration</title>
+    <title>Fira's Flavors</title>
   </head>
   <body>
     <div class="wrapper">
