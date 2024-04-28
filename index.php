@@ -124,7 +124,7 @@
                   sed stet lorem sit clita duo justo magna dolore erat amet
                 </p>
                 <a
-                  href=""
+                  href="./booking.php"
                   class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft"
                   >Book A Table</a
                 >
@@ -872,7 +872,7 @@
       <!-- Menu End -->
 
       <!-- Reservation Start -->
-      <div class="container-xxl py-5 px-0 wow fadeInUp" data-wow-delay="0.1s">
+      <div class="container-xxl py-5 px-0 wow fadeInUp" data-wow-delay="0.1s" id="Resrvation" >
         <div class="row g-0">
           <div class="col-md-6">
             <div class="video">
@@ -895,75 +895,116 @@
                 Reservation
               </h5>
               <h1 class="text-white mb-4">Book A Table Online</h1>
-              <form>
-                <div class="row g-3">
-                  <div class="col-md-6">
-                    <div class="form-floating">
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="name"
-                        placeholder="Your Name"
-                      />
-                      <label for="name">Your Name</label>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-floating">
-                      <input
-                        type="email"
-                        class="form-control"
-                        id="email"
-                        placeholder="Your Email"
-                      />
-                      <label for="email">Your Email</label>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div
-                      class="form-floating date"
-                      id="date3"
-                      data-target-input="nearest"
-                    >
-                      <input
-                        type="text"
-                        class="form-control datetimepicker-input"
-                        id="datetime"
-                        placeholder="Date & Time"
-                        data-target="#date3"
-                        data-toggle="datetimepicker"
-                      />
-                      <label for="datetime">Date & Time</label>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-floating">
-                      <select class="form-select" id="select1">
-                        <option value="1">People 1</option>
-                        <option value="2">People 2</option>
-                        <option value="3">People 3</option>
-                      </select>
-                      <label for="select1">No Of People</label>
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <div class="form-floating">
-                      <textarea
-                        class="form-control"
-                        placeholder="Special Request"
-                        id="message"
-                        style="height: 100px"
-                      ></textarea>
-                      <label for="message">Special Request</label>
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <button class="btn btn-primary w-100 py-3" type="submit">
-                      Book Now
-                    </button>
-                  </div>
-                </div>
-              </form>
+              <div id='successModal' style='display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4);'>
+    <div style='background-color: #fefefe; margin: 15% auto; padding: 20px; border: 1px solid #888; width: 80%; text-align: center;'>
+        <div id='loading' style='display: block;'>Loading...</div>
+        <div id='successMessage' style='display: none;'>Reservation made successfully</div>
+    </div>
+</div>
+              <?php
+                        if (session_status() == PHP_SESSION_NONE) {
+                          session_start();
+                        }
+
+                        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                          $servername = "";
+                          $username = "root";
+                          $password = "";
+                          $dbname = "firasflavors";
+
+                          // Create connection
+                          $conn = new mysqli($servername, $username, $password, $dbname);
+
+                          // Check connection
+                          if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
+                          }
+
+                          // Get form data
+                          $name = $_POST['name'];
+                          $email = $_POST['email'];
+                          // Get the date and time from the form
+                          $datetime = $_POST['datetime'];
+
+                          // Create a DateTime object from the form data
+                          $datetime = DateTime::createFromFormat('m/d/Y h:i A', $datetime);
+
+                          // Format the DateTime object as 'Y-m-d H:i:s'
+                          $datetime = $datetime->format('Y-m-d H:i:s');
+                          
+                          $noOfPeople = $_POST['noOfPeople'];
+                          $specialRequest = $_POST['specialRequest'];
+
+                          // Prepare an insert statement
+                          $stmt = $conn->prepare("INSERT INTO reservation (Name, Email, Date_Time, No_Peoples, Special) VALUES (?, ?, ?, ?, ?)");
+
+                          // Bind the variables to the prepared statement
+                          $stmt->bind_param("sssis", $name, $email, $datetime, $noOfPeople, $specialRequest);
+
+                          // Execute the statement
+                          if ($stmt->execute()) {
+                            echo "
+                            <script type='text/javascript'>
+                                var modal = document.getElementById('successModal');
+                                modal.style.display = 'block';
+                                setTimeout(function() {
+                                    modal.style.display = 'none';
+                                }, 5000);
+                            </script>
+                            ";
+                        }
+                          else {
+                            echo "Error: " . $stmt->error;
+                          }
+
+                          // Close the statement and connection
+                          $stmt->close();
+                          $conn->close();
+                        }
+                        ?>
+                        <form id="reservationForm">
+                          <div class="row g-3">
+                            <div class="col-md-6">
+                              <div class="form-floating">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" value="<?php echo isset($_SESSION['username']) ? $_SESSION['username'] : ''; ?>">
+                                <label for="name">Your Name</label>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-floating">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" value="<?php echo isset($_SESSION['email']) ? $_SESSION['email'] : ''; ?>">
+                                <label for="email">Your Email</label>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-floating date" id="date3" data-target-input="nearest">
+                                <input type="text" class="form-control datetimepicker-input" id="datetime" name="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" />
+                                <label for="datetime">Date & Time</label>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-floating">
+                                <select class="form-select" id="select1" name="noOfPeople">
+                                  <option value="1 People">People 1</option>
+                                  <option value="2 Peoples">People 2</option>
+                                  <option value="3 Peoples">People 3</option>
+                                  <option value="4 Peoples">People 4</option>
+                                  <option value="More than 4 Peoples">More than 4</option>
+                                </select>
+                                <label for="select1">No Of People</label>
+                              </div>
+                            </div>
+                            <div class="col-12">
+                              <div class="form-floating">
+                                <textarea class="form-control" placeholder="Special Request" id="message" name="specialRequest" style="height: 100px"></textarea>
+                                <label for="message">Special Request</label>
+                              </div>
+                            </div>
+                            <div class="col-12">
+                              <button class="btn btn-primary w-100 py-3" type="submit">Book Now</button>
+                            </div>
+                          </div>
+                        </form>
             </div>
           </div>
         </div>
@@ -1317,8 +1358,36 @@
     <script src="lib/tempusdominus/js/moment.min.js"></script>
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script type="text/javascript">
+      document.getElementById('reservationForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+    
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'index.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    
+        xhr.onload = function() {
+          if (this.status == 200) {
+            var modal = document.getElementById('successModal');
+            var loading = document.getElementById('loading');
+            var successMessage = document.getElementById('successMessage');
+            modal.style.display = 'block';
+            setTimeout(function() {
+              loading.style.display = 'none';
+              successMessage.style.display = 'block';
+              setTimeout(function() {
+                modal.style.display = 'none';
+                document.getElementById('reservationForm').reset(); // Reset the form
+              }, 2000); // Hide the modal after 2 seconds
+            }, 1000); // Show the success message after 1 second
+          }
+        };
+    
+        var formData = new FormData(document.getElementById('reservationForm'));
+        xhr.send(new URLSearchParams(formData).toString());
+      });
+    </script>
   </body>
 </html>

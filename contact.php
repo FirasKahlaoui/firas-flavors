@@ -252,7 +252,7 @@
 
                   // Execute the statement
                   if ($stmt->execute()) {
-                    echo "<div id='successMessage'>Message sent successfully</div>";
+                    echo "<div id='successMessage style='color:green; text-align:center'>Message sent successfully</div>";
                     echo "
                     <script type='text/javascript'>
                         setTimeout(function() {
