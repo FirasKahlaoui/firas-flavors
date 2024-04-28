@@ -102,23 +102,51 @@ $conn->close();
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/login.css" />
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
     <title>Fira's Flavors</title>
   </head>
   <body>
     <div class="wrapper">
-      <nav class="nav">
-        <div class="nav-logo">
-          <p>LOGO .</p>
-        </div>
-        <div class="nav-menu" id="navMenu">
-          <ul>
-            <li><a href="#" class="link active">Home</a></li>
-            <li><a href="#" class="link">Blog</a></li>
-            <li><a href="#" class="link">Services</a></li>
-            <li><a href="#" class="link">About</a></li>
-          </ul>
-        </div>
-        <div class="nav-button">
+    <nav
+          class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0"
+        >
+          <a href="./index.php" class="navbar-brand p-0">
+            <h1 class="text-primary m-0">
+              <i class="fa fa-utensils me-3"></i>Fira's Flavors
+            </h1>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse"
+          >
+            <span class="fa fa-bars"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0 pe-4">
+              <a href="index.php" class="nav-item nav-link">Home</a>
+              <a href="about.php" class="nav-item nav-link">About</a>
+              <a href="service.php" class="nav-item nav-link">Service</a>
+              <a href="menu.php" class="nav-item nav-link">Menu</a>
+              
+              <a href="contact.php" class="nav-item nav-link">Contact</a>
+            </div>
+          </div>
+          <div class="nav-button">
           <button class="btn white-btn" id="loginBtn" onclick="login()">
             Sign In
           </button>
@@ -126,10 +154,7 @@ $conn->close();
             Sign Up
           </button>
         </div>
-        <div class="nav-menu-btn">
-          <i class="bx bx-menu" onclick="myMenuFunction()"></i>
-        </div>
-      </nav>
+        </nav>
       <!----------------------------- Form box ----------------------------------->
       <div class="form-box">
         <!------------------- login form -------------------------->
