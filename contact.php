@@ -41,6 +41,15 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet" />
+    <style>
+    .dropdown-menu {
+        right: -32px !important;
+
+    }
+    .dropdown-item-highlight {
+    background-color: #FFD700;
+    }
+    </style>
   </head>
 
   <body>
