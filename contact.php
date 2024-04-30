@@ -272,25 +272,57 @@
                   <div class="row g-3">
                     <div class="col-md-6">
                       <div class="form-floating">
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" value="<?php echo isset($_SESSION['username']) ? $_SESSION['username'] : ''; ?>" />
+                        <input 
+                          type="text" 
+                          class="form-control" 
+                          id="name" 
+                          name="name" 
+                          placeholder="Your Name" 
+                          pattern="[A-Za-z\s]+" 
+                          required
+                          value="<?php echo isset($_SESSION['username']) ? $_SESSION['username'] : ''; ?>"
+                        />
                         <label for="name">Your Name</label>
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-floating">
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" value="<?php echo isset($_SESSION['email']) ? $_SESSION['email'] : ''; ?>" />
+                        <input 
+                          type="email" 
+                          class="form-control" 
+                          id="email" 
+                          name="email" 
+                          placeholder="Your Email" 
+                          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" 
+                          required
+                          value="<?php echo isset($_SESSION['email']) ? $_SESSION['email'] : ''; ?>"
+                        />
                         <label for="email">Your Email</label>
                       </div>
                     </div>
                     <div class="col-12">
                       <div class="form-floating">
-                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" />
+                        <input 
+                          type="text" 
+                          class="form-control" 
+                          id="subject" 
+                          name="subject" 
+                          placeholder="Subject" 
+                          required
+                        />
                         <label for="subject">Subject</label>
                       </div>
                     </div>
                     <div class="col-12">
                       <div class="form-floating">
-                        <textarea class="form-control" placeholder="Leave a message here" id="message" name="message" style="height: 150px"></textarea>
+                        <textarea 
+                          class="form-control" 
+                          placeholder="Leave a message here" 
+                          id="message" 
+                          name="message" 
+                          style="height: 150px" 
+                          required
+                        ></textarea>
                         <label for="message">Message</label>
                       </div>
                     </div>

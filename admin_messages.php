@@ -112,7 +112,7 @@ $result = $mysqli->query($sql);
             <a href="./admin_users.php" class="nav-item nav-link">Users</a>
             <a href="./admin_messages.php" class="nav-item nav-link">Messages</a>
             <a href="./reservation_by_user.php" class="nav-item nav-link">User-Reservations</a>
-            <a href="./admin_news_letter" class="nav-item nav-link">News Letter</a>
+            <a href="./admin_login.php" class="nav-item nav-link">Logout</a>
         </div>
     </div>
   </nav>

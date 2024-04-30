@@ -14,7 +14,7 @@ body::after {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-color: rgba(0, 0, 0, 0.9); /* Adjust to your preference */
+  background-color: rgba(0, 0, 0, 0.9); 
   top: 0;
   left: 0;
   bottom: 0;

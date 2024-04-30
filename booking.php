@@ -216,19 +216,37 @@
                           <div class="row g-3">
                             <div class="col-md-6">
                               <div class="form-floating">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" value="<?php echo isset($_SESSION['username']) ? $_SESSION['username'] : ''; ?>">
+                                <input 
+                                  type="text" 
+                                  class="form-control" 
+                                  id="name" 
+                                  name="name" 
+                                  placeholder="Your Name" 
+                                  pattern="[A-Za-z\s]+" 
+                                  required
+                                  value="<?php echo isset($_SESSION['username']) ? $_SESSION['username'] : ''; ?>"
+                                >
                                 <label for="name">Your Name</label>
                               </div>
                             </div>
                             <div class="col-md-6">
                               <div class="form-floating">
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" value="<?php echo isset($_SESSION['email']) ? $_SESSION['email'] : ''; ?>">
+                                <input 
+                                  type="email" 
+                                  class="form-control" 
+                                  id="email" 
+                                  name="email" 
+                                  placeholder="Your Email" 
+                                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" 
+                                  required
+                                  value="<?php echo isset($_SESSION['email']) ? $_SESSION['email'] : ''; ?>"
+                                >
                                 <label for="email">Your Email</label>
                               </div>
                             </div>
                             <div class="col-md-6">
                               <div class="form-floating date" id="date3" data-target-input="nearest">
-                                <input type="text" class="form-control datetimepicker-input" id="datetime" name="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" />
+                                <input type="text" class="form-control datetimepicker-input" id="datetime" name="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" required/>
                                 <label for="datetime">Date & Time</label>
                               </div>
                             </div>

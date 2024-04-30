@@ -1,5 +1,12 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $_SESSION['entered_email'] = $_POST['email'];
+    // rest of your form handling code
+}
 
 $servername = "";
 $username = "root";
@@ -196,10 +203,13 @@ $conn->close();
           <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
             <div class="input-box">
               <input
-                type="text"
+                type="email"
                 name="email"
                 class="input-field"
                 placeholder="Email Address"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                required
+                value="<?php echo isset($_SESSION['entered_email']) ? $_SESSION['entered_email'] : '' ?>"
               />
               <i class="bx bx-user"></i>
             </div>
@@ -209,15 +219,6 @@ $conn->close();
             </div>
             <div class="input-box">
               <input type="submit" class="submit" value="Sign In" name="login" />
-            </div>
-            <div class="two-col">
-              <div class="one">
-                <input type="checkbox" id="login-check" />
-                <label for="login-check"> Remember Me</label>
-              </div>
-              <div class="two">
-                <label><a href="#">Forgot password?</a></label>
-              </div>
             </div>
           </form>
         </div>
@@ -238,6 +239,8 @@ $conn->close();
                   placeholder="Firstname"
                   name="firstname"
                   id="firstname"
+                  pattern="[A-Za-z]+"
+                  required
                 />
                 <i class="bx bx-user"></i>
               </div>
@@ -248,17 +251,20 @@ $conn->close();
                   placeholder="Lastname"
                   name="lastname"
                   id="lastname"
+                  pattern="[A-Za-z]+"
+                  required
                 />
                 <i class="bx bx-user"></i>
               </div>
             </div>
             <div class="input-box">
               <input
-                type="text"
+                type="email"
                 class="input-field"
                 placeholder="Email"
                 name="email"
                 id="email"
+                required
               />
               <i class="bx bx-envelope"></i>
             </div>
@@ -269,21 +275,17 @@ $conn->close();
                 placeholder="Password"
                 name="password"
                 id="password"
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                required
               />
               <i class="bx bx-lock-alt"></i>
-            </div>
+                <div class="error" style="display: none; color: red;"></div>
+              </div>
             <div class="input-box">
             <input type="submit" class="submit" value="Register" name="register" />
             </div>
-            <div class="two-col">
-              <div class="one">
-                <input type="checkbox" id="register-check" />
-                <label for="register-check"> Remember Me</label>
-              </div>
-              <div class="two">
-                <label><a href="#">Terms & conditions</a></label>
-              </div>
-            </div>
+            
           </form>
         </div>
       </div>
@@ -320,5 +322,41 @@ $conn->close();
         y.style.opacity = 1;
       }
     </script>
+    <script>
+document.getElementById('register').addEventListener('submit', function(event) {
+    var firstname = document.getElementById('firstname');
+    var lastname = document.getElementById('lastname');
+    var email = document.getElementById('email');
+    var password = document.getElementById('password');
+
+    if (!firstname.validity.valid) {
+        var error = firstname.parentNode.getElementsByClassName('error')[0];
+        error.textContent = 'Please enter a valid first name.';
+        error.style.display = 'block';
+        event.preventDefault();
+    }
+
+    if (!lastname.validity.valid) {
+        var error = lastname.parentNode.getElementsByClassName('error')[0];
+        error.textContent = 'Please enter a valid last name.';
+        error.style.display = 'block';
+        event.preventDefault();
+    }
+
+    if (!email.validity.valid) {
+        var error = email.parentNode.getElementsByClassName('error')[0];
+        error.textContent = 'Please enter a valid email.';
+        error.style.display = 'block';
+        event.preventDefault();
+    }
+
+    if (!password.validity.valid) {
+        var error = password.parentNode.getElementsByClassName('error')[0];
+        error.textContent = 'Please enter a valid password.';
+        error.style.display = 'block';
+        event.preventDefault();
+    }
+});
+</script>
   </body>
 </html>
