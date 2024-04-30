@@ -1303,24 +1303,12 @@
               <p>10AM - 08PM</p>
             </div>
             <div class="col-lg-3 col-md-6">
-              <h4
-                class="section-title ff-secondary text-start text-primary fw-normal mb-4"
-              >
-                Newsletter
-              </h4>
+              <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Newsletter</h4>
               <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
               <div class="position-relative mx-auto" style="max-width: 400px">
-                <input
-                  class="form-control border-primary w-100 py-3 ps-4 pe-5"
-                  type="text"
-                  placeholder="Your email"
-                />
-                <button
-                  type="button"
-                  class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2"
-                >
-                  SignUp
-                </button>
+                <div id="message"></div>
+                <input id="email" class="form-control border-primary w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email" />
+                <button id="signup" type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
               </div>
             </div>
           </div>
@@ -1397,6 +1385,23 @@
         var formData = new FormData(document.getElementById('reservationForm'));
         xhr.send(new URLSearchParams(formData).toString());
       });
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+      $("#signup").click(function(){
+        var email = $("#email").val();
+        $.ajax({
+          url: 'signup.php',
+          type: 'post',
+          data: {email: email},
+          success: function(response){
+            $("#message").html(response);
+          }
+        });
+      });
+    });
     </script>
   </body>
 </html>

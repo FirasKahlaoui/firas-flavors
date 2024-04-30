@@ -155,6 +155,14 @@ $result = $mysqli->query($sql);
       </td>
     </tr>
     <?php endwhile; ?>
+    <?php if ($result->num_rows > 0): ?>
+    <?php while($row = $result->fetch_assoc()): ?>
+    <?php endwhile; ?>
+  <?php else: ?>
+    <tr>
+      <td colspan="7">No Reservations found</td>
+    </tr>
+  <?php endif; ?>
   </table>
 </div>
 </body>
