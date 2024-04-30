@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Username is root
+// Username root
 $user = 'root';
 $password = '';
 
@@ -18,11 +18,33 @@ if ($mysqli->connect_error) {
     die('Connect Error (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error);
 }
 
-$email = isset($_POST['email']) ? $mysqli->real_escape_string($_POST['email']) : '';
+if(isset($_POST['email'])) {
+    $email = $mysqli->real_escape_string($_POST['email']);
 
-// SQL query to select data from database
-$sql = "SELECT * FROM reservation WHERE Email = '$email'";
-$result = $mysqli->query($sql);
+    // SQL query to select data from database
+    $sql = "SELECT * FROM reservation WHERE Email = '$email'";
+    $result = $mysqli->query($sql);
+
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            // Output each row here...
+            echo "<tr>";
+            echo "<td>{$row['id']}</td>";
+            echo "<td>{$row['Name']}</td>";
+            echo "<td>{$row['Email']}</td>";
+            echo "<td>{$row['Date_Time']}</td>";
+            echo "<td>{$row['No_Peoples']}</td>";
+            echo "<td>{$row['Special']}</td>";
+            echo "<td><form method='POST' action='delete_reservation.php'><input type='hidden' name='id' value='{$row['id']}'><input type='submit' value='Delete'></form></td>";
+            echo "</tr>";
+        }
+    } else {
+        echo "<tr><td colspan='7'>No Reservations found</td></tr>";
+    }
+
+    $mysqli->close();
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -94,6 +116,36 @@ $result = $mysqli->query($sql);
         .table-container {
     margin-top: 120px;
 }
+.input-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#email {
+    margin: 0 10px;
+    width: 300px; 
+    padding: 10px;
+    border: none;
+    border-radius: 5px; 
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); 
+    font-size: 16px;
+}
+
+#show {
+    margin: 0 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px; 
+    background: rgba(255, 255, 255, 0.2);; 
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#show:hover {
+    background: rgba(255, 255, 255, 0.4);; 
+}
     </style>
     <title>Admin Dashboard</title>
 </head>
@@ -121,63 +173,34 @@ $result = $mysqli->query($sql);
 </div>
 
 <div class="table-container">
-<input id="email" type="text" placeholder="Enter email" />
-  <button id="show">Show</button>
-  <table>
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Date Time</th>
-      <th>No. of Peoples</th>
-      <th>Special</th>
-      <th>Action</th>
-    </tr>
-    <?php while($row = $result->fetch_assoc()): ?>
-    <tr>
-      <td><?php echo $row['id']; ?></td>
-      <td><?php echo $row['Name']; ?></td>
-      <td><?php echo $row['Email']; ?></td>
-      <td><?php echo $row['Date_Time']; ?></td>
-    <td>
-        <?php 
-        if ($row['No_Peoples'] == 1) {
-            echo '1 People';
-        } elseif ($row['No_Peoples'] <= 4) {
-            echo $row['No_Peoples'] . ' Peoples';
-        } else {
-            echo 'More than 4 Peoples';
-        }
-        ?>
-    </td>
-      <td><?php echo $row['Special']; ?></td>
-      <td>
-        <form method="POST" action="delete_reservation.php">
-          <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-          <input type="submit" value="Delete">
-        </form>
-      </td>
-    </tr>
-    <?php endwhile; ?>
-    <?php if ($result->num_rows > 0): ?>
-    <?php while($row = $result->fetch_assoc()): ?>
-      <!-- ... -->
-    <?php endwhile; ?>
-  <?php else: ?>
-    <tr>
-      <td colspan="7">No Reservations found</td>
-    </tr>
-  <?php endif; ?>
-  </table>
+<div class="input-container">
+        <input id="email" type="text" placeholder="Enter email" />
+        <button id="show">Show</button>
+    </div>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Date Time</th>
+            <th>No. of Peoples</th>
+            <th>Special</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody id="reservations"></tbody>
+</table>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
-    $("#show").click(function(){
+    $("#show").click(function(e){
+        e.preventDefault();
         var email = $("#email").val();
         $.ajax({
-            url: 'reservation_by_user.php',
+            url: 'reservation_by_user.php', // Changed to the same page
             type: 'post',
             data: {email: email},
             success: function(response){
