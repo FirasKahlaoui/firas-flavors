@@ -10,7 +10,7 @@
 
 body::after {
   content: "";
-  background: url("../img/bg-hero.jpg");
+  background: url("../img/bg-hero.avif");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;

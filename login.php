@@ -199,7 +199,7 @@ $conn->close();
                 type="text"
                 name="email"
                 class="input-field"
-                placeholder="Username or Email"
+                placeholder="Email Address"
               />
               <i class="bx bx-user"></i>
             </div>
