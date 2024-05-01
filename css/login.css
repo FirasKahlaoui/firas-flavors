@@ -10,11 +10,11 @@
 
 body::after {
   content: "";
-  background: url("../img/bg-hero.jpg");
+  background: url("../img/login-bg.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-color: rgba(0, 0, 0, 0.9); 
+  background-color: rgba(0, 0, 0, 0.9);
   top: 0;
   left: 0;
   bottom: 0;
@@ -22,7 +22,6 @@ body::after {
   position: absolute;
   z-index: -1;
 }
-
 body {
   overflow: hidden;
   position: relative;
