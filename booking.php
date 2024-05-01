@@ -152,66 +152,72 @@
     </div>
 </div>
               <?php
-                        if (session_status() == PHP_SESSION_NONE) {
-                          session_start();
-                        }
+                if (session_status() == PHP_SESSION_NONE) {
+                  session_start();
+                }
 
-                        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                          $servername = "";
-                          $username = "root";
-                          $password = "";
-                          $dbname = "firasflavors";
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                  // Check if the user is logged in
+                  if(!isset($_SESSION['username'])) {
+                    // If not, redirect them to the login page
+                    header("Location: login.php");
+                    exit();
+                  } else {
+                    $servername = "";
+                    $username = "root";
+                    $password = "";
+                    $dbname = "firasflavors";
 
-                          // Create connection
-                          $conn = new mysqli($servername, $username, $password, $dbname);
+                    // Create connection
+                    $conn = new mysqli($servername, $username, $password, $dbname);
 
-                          // Check connection
-                          if ($conn->connect_error) {
-                            die("Connection failed: " . $conn->connect_error);
-                          }
+                    // Check connection
+                    if ($conn->connect_error) {
+                      die("Connection failed: " . $conn->connect_error);
+                    }
 
-                          // Get form data
-                          $name = $_POST['name'];
-                          $email = $_POST['email'];
-                          // Get the date and time from the form
-                          $datetime = $_POST['datetime'];
+                    // Get form data
+                    $name = $_POST['name'];
+                    $email = $_POST['email'];
+                    // Get the date and time from the form
+                    $datetime = $_POST['datetime'];
 
-                          // Create a DateTime object from the form data
-                          $datetime = DateTime::createFromFormat('m/d/Y h:i A', $datetime);
+                    // Create a DateTime object from the form data
+                    $datetime = DateTime::createFromFormat('m/d/Y h:i A', $datetime);
 
-                          // Format the DateTime object as 'Y-m-d H:i:s'
-                          $datetime = $datetime->format('Y-m-d H:i:s');
-                          
-                          $noOfPeople = $_POST['noOfPeople'];
-                          $specialRequest = $_POST['specialRequest'];
+                    // Format the DateTime object as 'Y-m-d H:i:s'
+                    $datetime = $datetime->format('Y-m-d H:i:s');
+                    
+                    $noOfPeople = $_POST['noOfPeople'];
+                    $specialRequest = $_POST['specialRequest'];
 
-                          // Prepare an insert statement
-                          $stmt = $conn->prepare("INSERT INTO reservation (Name, Email, Date_Time, No_Peoples, Special) VALUES (?, ?, ?, ?, ?)");
+                    // Prepare an insert statement
+                    $stmt = $conn->prepare("INSERT INTO reservation (Name, Email, Date_Time, No_Peoples, Special) VALUES (?, ?, ?, ?, ?)");
 
-                          // Bind the variables to the prepared statement
-                          $stmt->bind_param("sssis", $name, $email, $datetime, $noOfPeople, $specialRequest);
+                    // Bind the variables to the prepared statement
+                    $stmt->bind_param("sssis", $name, $email, $datetime, $noOfPeople, $specialRequest);
 
-                          // Execute the statement
-                          if ($stmt->execute()) {
-                            echo "
-                            <script type='text/javascript'>
-                                var modal = document.getElementById('successModal');
-                                modal.style.display = 'block';
-                                setTimeout(function() {
-                                    modal.style.display = 'none';
-                                }, 5000);
-                            </script>
-                            ";
-                        }
-                          else {
-                            echo "Error: " . $stmt->error;
-                          }
+                    // Execute the statement
+                    if ($stmt->execute()) {
+                      echo "
+                      <script type='text/javascript'>
+                        var modal = document.getElementById('successModal');
+                        modal.style.display = 'block';
+                        setTimeout(function() {
+                          modal.style.display = 'none';
+                        }, 5000);
+                      </script>
+                      ";
+                    } else {
+                      echo "Error: " . $stmt->error;
+                    }
 
-                          // Close the statement and connection
-                          $stmt->close();
-                          $conn->close();
-                        }
-                        ?>
+                    // Close the statement and connection
+                    $stmt->close();
+                    $conn->close();
+                  }
+                }
+              ?>
                         <form id="reservationForm">
                           <div class="row g-3">
                             <div class="col-md-6">

@@ -240,6 +240,7 @@ $conn->close();
                   name="firstname"
                   id="firstname"
                   pattern="[A-Za-z]+"
+                  title="Please enter a valid first name (only letters)"
                   required
                 />
                 <i class="bx bx-user"></i>
@@ -252,6 +253,7 @@ $conn->close();
                   name="lastname"
                   id="lastname"
                   pattern="[A-Za-z]+"
+                  title="Please enter a valid last name (only letters)"
                   required
                 />
                 <i class="bx bx-user"></i>
@@ -264,6 +266,8 @@ $conn->close();
                 placeholder="Email"
                 name="email"
                 id="email"
+                pattern="[a-zA-Z][a-zA-Z0-9._%+-]+@(gmail|outlook|yahoo)\.(com|tn)"
+                title="Veuillez saisir une adresse e-mail valide (@gmail.com, @outlook.com, @yahoo.com, @gmail.tn, @outlook.tn, @yahoo.tn)"
                 required
               />
               <i class="bx bx-envelope"></i>
