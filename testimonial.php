@@ -133,59 +133,85 @@
 
         <!-- Testimonial Start -->
         <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="container">
-                <div class="text-center">
-                    <h5 class="section-title ff-secondary text-center text-primary fw-normal">Testimonial</h5>
-                    <h1 class="mb-5">Our Clients Say!!!</h1>
-                </div>
-                <div class="owl-carousel testimonial-carousel">
-                    <div class="testimonial-item bg-transparent border rounded p-4">
-                        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                        <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
-                        <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-1.jpg" style="width: 50px; height: 50px;">
-                            <div class="ps-3">
-                                <h5 class="mb-1">Client Name</h5>
-                                <small>Profession</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-item bg-transparent border rounded p-4">
-                        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                        <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
-                        <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-2.jpg" style="width: 50px; height: 50px;">
-                            <div class="ps-3">
-                                <h5 class="mb-1">Client Name</h5>
-                                <small>Profession</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-item bg-transparent border rounded p-4">
-                        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                        <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
-                        <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-3.jpg" style="width: 50px; height: 50px;">
-                            <div class="ps-3">
-                                <h5 class="mb-1">Client Name</h5>
-                                <small>Profession</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-item bg-transparent border rounded p-4">
-                        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                        <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
-                        <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-4.jpg" style="width: 50px; height: 50px;">
-                            <div class="ps-3">
-                                <h5 class="mb-1">Client Name</h5>
-                                <small>Profession</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <div class="container">
+    <div class="text-center">
+      <h5 class="section-title ff-secondary text-center text-primary fw-normal">
+        Testimonial
+      </h5>
+      <h1 class="mb-5">Our Clients Say!!!</h1>
+    </div>
+    <div class="owl-carousel testimonial-carousel">
+      <div class="testimonial-item bg-transparent border rounded p-4">
+        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+        <p>
+          "The food at Fira's Flavors is absolutely amazing! Every dish is bursting with flavor and made with the freshest ingredients. I highly recommend trying their signature dish, it's a true culinary delight."
+        </p>
+        <div class="d-flex align-items-center">
+          <img
+            class="img-fluid flex-shrink-0 rounded-circle"
+            src="img/testimonial-1.jpg"
+            style="width: 50px; height: 50px"
+          />
+          <div class="ps-3">
+            <h5 class="mb-1">Emily Johnson</h5>
+            <small>Food Critic</small>
+          </div>
         </div>
+      </div>
+      <div class="testimonial-item bg-transparent border rounded p-4">
+        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+        <p>
+          "I'm always on the lookout for exceptional dining experiences. Fira's Flavors exceeded my expectations in every way. The attention to detail in each dish is unparalleled."
+        </p>
+        <div class="d-flex align-items-center">
+          <img
+            class="img-fluid flex-shrink-0 rounded-circle"
+            src="img/testimonial-2.jpg"
+            style="width: 50px; height: 50px"
+          />
+          <div class="ps-3">
+            <h5 class="mb-1">Michael Rodriguez</h5>
+            <small>Executive Chef</small>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-item bg-transparent border rounded p-4">
+        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+        <p>
+          "My dining experience at Fira's Flavors was nothing short of exceptional. The flavors were bold and delicious, and the service was impeccable. I can't wait to come back and try more of their menu!"
+        </p>
+        <div class="d-flex align-items-center">
+          <img
+            class="img-fluid flex-shrink-0 rounded-circle"
+            src="img/testimonial-3.jpg"
+            style="width: 50px; height: 50px"
+          />
+          <div class="ps-3">
+            <h5 class="mb-1">David Smith</h5>
+            <small>Food Blogger</small>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-item bg-transparent border rounded p-4">
+        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+        <p>
+          "Fira's Flavors has become my go-to restaurant for any occasion. The quality of the food and the level of service are consistently outstanding. It's a gem in the culinary scene!"
+        </p>
+        <div class="d-flex align-items-center">
+          <img
+            class="img-fluid flex-shrink-0 rounded-circle"
+            src="img/testimonial-4.jpg"
+            style="width: 50px; height: 50px"
+          />
+          <div class="ps-3">
+            <h5 class="mb-1">Sophia Lee</h5>
+            <small>Food Enthusiast</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
         <!-- Testimonial End -->
         
 

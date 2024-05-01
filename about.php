@@ -199,7 +199,7 @@
               </h5>
               <h1 class="mb-4">
                 Welcome to
-                <i class="fa fa-utensils text-primary me-2"></i>Restoran
+                <i class="fa fa-utensils text-primary me-2"></i>Fira's Flavors
               </h1>
               <p class="mb-4">
                 Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit.

@@ -128,9 +128,10 @@
                   Enjoy Our<br />Delicious Meal
                 </h1>
                 <p class="text-white animated slideInLeft mb-4 pb-2">
-                  Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit.
-                  Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit,
-                  sed stet lorem sit clita duo justo magna dolore erat amet
+                Indulge in a culinary journey like no other. At Fira's Flavors, we craft each dish with passion
+    and precision, ensuring every bite is a memorable experience. From savory starters to delectable
+    desserts, our menu offers a symphony of flavors to tantalize your taste buds. Join us for an
+    unforgettable dining experience that celebrates the art of food.
                 </p>
                 <a
                   href="./booking.php"
@@ -157,8 +158,7 @@
                   <i class="fa fa-3x fa-user-tie text-primary mb-4"></i>
                   <h5>Master Chefs</h5>
                   <p>
-                    Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita
-                    amet diam
+                  Delight in culinary excellence curated by our team of master chefs, whose passion and expertise elevate each dish to a true masterpiece.
                   </p>
                 </div>
               </div>
@@ -169,8 +169,7 @@
                   <i class="fa fa-3x fa-utensils text-primary mb-4"></i>
                   <h5>Quality Food</h5>
                   <p>
-                    Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita
-                    amet diam
+                  Indulge in a culinary journey of uncompromising quality, where every dish is crafted with the finest ingredients to exceed your expectations.
                   </p>
                 </div>
               </div>
@@ -181,8 +180,7 @@
                   <i class="fa fa-3x fa-cart-plus text-primary mb-4"></i>
                   <h5>Online Order</h5>
                   <p>
-                    Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita
-                    amet diam
+                  Order from our extensive menu online, bringing the flavors of our restaurant directly to your doorstep with just a few clicks.
                   </p>
                 </div>
               </div>
@@ -193,8 +191,7 @@
                   <i class="fa fa-3x fa-headset text-primary mb-4"></i>
                   <h5>24/7 Service</h5>
                   <p>
-                    Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita
-                    amet diam
+                  Experience unparalleled convenience with our round-the-clock service, ensuring you can enjoy our delectable offerings anytime, anywhere.
                   </p>
                 </div>
               </div>
@@ -249,17 +246,14 @@
               </h5>
               <h1 class="mb-4">
                 Welcome to
-                <i class="fa fa-utensils text-primary me-2"></i>Restoran
+                <i class="fa fa-utensils text-primary me-2"></i>Fira's Flavors
               </h1>
               <p class="mb-4">
-                Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit.
-                Aliqu diam amet diam et eos erat ipsum et lorem et sit, sed stet
-                lorem sit.
+                
+Fira's Flavors is more than just a restaurant; it's a culinary journey through the vibrant tastes of the Mediterranean. Nestled in the heart of the city, our cozy establishment offers a fusion of traditional and contemporary dishes, each crafted with care and passion by our skilled chefs. 
               </p>
               <p class="mb-4">
-                Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit.
-                Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit,
-                sed stet lorem sit clita duo justo magna dolore erat amet
+              With a warm and inviting ambiance, Fira's Flavors promises an unforgettable dining experience for food lovers seeking authenticity and innovation.
               </p>
               <div class="row g-4 mb-4">
                 <div class="col-sm-6">
@@ -1171,92 +1165,87 @@
       <!-- Team End -->
 
       <!-- Testimonial Start -->
-      <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container">
-          <div class="text-center">
-            <h5
-              class="section-title ff-secondary text-center text-primary fw-normal"
-            >
-              Testimonial
-            </h5>
-            <h1 class="mb-5">Our Clients Say!!!</h1>
-          </div>
-          <div class="owl-carousel testimonial-carousel">
-            <div class="testimonial-item bg-transparent border rounded p-4">
-              <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-              <p>
-                Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor
-                stet amet eirmod eos labore diam
-              </p>
-              <div class="d-flex align-items-center">
-                <img
-                  class="img-fluid flex-shrink-0 rounded-circle"
-                  src="img/testimonial-1.jpg"
-                  style="width: 50px; height: 50px"
-                />
-                <div class="ps-3">
-                  <h5 class="mb-1">Client Name</h5>
-                  <small>Profession</small>
-                </div>
-              </div>
-            </div>
-            <div class="testimonial-item bg-transparent border rounded p-4">
-              <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-              <p>
-                Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor
-                stet amet eirmod eos labore diam
-              </p>
-              <div class="d-flex align-items-center">
-                <img
-                  class="img-fluid flex-shrink-0 rounded-circle"
-                  src="img/testimonial-2.jpg"
-                  style="width: 50px; height: 50px"
-                />
-                <div class="ps-3">
-                  <h5 class="mb-1">Client Name</h5>
-                  <small>Profession</small>
-                </div>
-              </div>
-            </div>
-            <div class="testimonial-item bg-transparent border rounded p-4">
-              <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-              <p>
-                Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor
-                stet amet eirmod eos labore diam
-              </p>
-              <div class="d-flex align-items-center">
-                <img
-                  class="img-fluid flex-shrink-0 rounded-circle"
-                  src="img/testimonial-3.jpg"
-                  style="width: 50px; height: 50px"
-                />
-                <div class="ps-3">
-                  <h5 class="mb-1">Client Name</h5>
-                  <small>Profession</small>
-                </div>
-              </div>
-            </div>
-            <div class="testimonial-item bg-transparent border rounded p-4">
-              <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-              <p>
-                Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor
-                stet amet eirmod eos labore diam
-              </p>
-              <div class="d-flex align-items-center">
-                <img
-                  class="img-fluid flex-shrink-0 rounded-circle"
-                  src="img/testimonial-4.jpg"
-                  style="width: 50px; height: 50px"
-                />
-                <div class="ps-3">
-                  <h5 class="mb-1">Client Name</h5>
-                  <small>Profession</small>
-                </div>
-              </div>
-            </div>
+<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+  <div class="container">
+    <div class="text-center">
+      <h5 class="section-title ff-secondary text-center text-primary fw-normal">
+        Testimonial
+      </h5>
+      <h1 class="mb-5">Our Clients Say!!!</h1>
+    </div>
+    <div class="owl-carousel testimonial-carousel">
+      <div class="testimonial-item bg-transparent border rounded p-4">
+        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+        <p>
+          "The food at Fira's Flavors is absolutely amazing! Every dish is bursting with flavor and made with the freshest ingredients. I highly recommend trying their signature dish, it's a true culinary delight."
+        </p>
+        <div class="d-flex align-items-center">
+          <img
+            class="img-fluid flex-shrink-0 rounded-circle"
+            src="img/testimonial-1.jpg"
+            style="width: 50px; height: 50px"
+          />
+          <div class="ps-3">
+            <h5 class="mb-1">Emily Johnson</h5>
+            <small>Food Critic</small>
           </div>
         </div>
       </div>
+      <div class="testimonial-item bg-transparent border rounded p-4">
+        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+        <p>
+          "I'm always on the lookout for exceptional dining experiences. Fira's Flavors exceeded my expectations in every way. The attention to detail in each dish is unparalleled."
+        </p>
+        <div class="d-flex align-items-center">
+          <img
+            class="img-fluid flex-shrink-0 rounded-circle"
+            src="img/testimonial-2.jpg"
+            style="width: 50px; height: 50px"
+          />
+          <div class="ps-3">
+            <h5 class="mb-1">Michael Rodriguez</h5>
+            <small>Executive Chef</small>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-item bg-transparent border rounded p-4">
+        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+        <p>
+          "My dining experience at Fira's Flavors was nothing short of exceptional. The flavors were bold and delicious, and the service was impeccable. I can't wait to come back and try more of their menu!"
+        </p>
+        <div class="d-flex align-items-center">
+          <img
+            class="img-fluid flex-shrink-0 rounded-circle"
+            src="img/testimonial-3.jpg"
+            style="width: 50px; height: 50px"
+          />
+          <div class="ps-3">
+            <h5 class="mb-1">David Smith</h5>
+            <small>Food Blogger</small>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-item bg-transparent border rounded p-4">
+        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+        <p>
+          "Fira's Flavors has become my go-to restaurant for any occasion. The quality of the food and the level of service are consistently outstanding. It's a gem in the culinary scene!"
+        </p>
+        <div class="d-flex align-items-center">
+          <img
+            class="img-fluid flex-shrink-0 rounded-circle"
+            src="img/testimonial-4.jpg"
+            style="width: 50px; height: 50px"
+          />
+          <div class="ps-3">
+            <h5 class="mb-1">Sophia Lee</h5>
+            <small>Food Enthusiast</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
       <!-- Testimonial End -->
 
       <!-- Footer Start -->

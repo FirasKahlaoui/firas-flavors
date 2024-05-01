@@ -143,7 +143,7 @@
                             <div class="p-4">
                                 <i class="fa fa-3x fa-user-tie text-primary mb-4"></i>
                                 <h5>Master Chefs</h5>
-                                <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                                <p>Delight in culinary excellence curated by our team of master chefs, whose passion and expertise elevate each dish to a true masterpiece.</p>
                             </div>
                         </div>
                     </div>
@@ -152,7 +152,7 @@
                             <div class="p-4">
                                 <i class="fa fa-3x fa-utensils text-primary mb-4"></i>
                                 <h5>Quality Food</h5>
-                                <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                                <p>Indulge in a culinary journey of uncompromising quality, where every dish is crafted with the finest ingredients to exceed your expectations.</p>
                             </div>
                         </div>
                     </div>
@@ -161,7 +161,7 @@
                             <div class="p-4">
                                 <i class="fa fa-3x fa-cart-plus text-primary mb-4"></i>
                                 <h5>Online Order</h5>
-                                <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                                <p>Order from our extensive menu online, bringing the flavors of our restaurant directly to your doorstep with just a few clicks.</p>
                             </div>
                         </div>
                     </div>
@@ -170,7 +170,7 @@
                             <div class="p-4">
                                 <i class="fa fa-3x fa-headset text-primary mb-4"></i>
                                 <h5>24/7 Service</h5>
-                                <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                                <p>Experience unparalleled convenience with our round-the-clock service, ensuring you can enjoy our delectable offerings anytime, anywhere.</p>
                             </div>
                         </div>
                     </div>
@@ -179,7 +179,7 @@
                             <div class="p-4">
                                 <i class="fa fa-3x fa-user-tie text-primary mb-4"></i>
                                 <h5>Master Chefs</h5>
-                                <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                                <p>Delight in culinary excellence curated by our team of master chefs, whose passion and expertise elevate each dish to a true masterpiece.</p>
                             </div>
                         </div>
                     </div>
@@ -188,7 +188,7 @@
                             <div class="p-4">
                                 <i class="fa fa-3x fa-utensils text-primary mb-4"></i>
                                 <h5>Quality Food</h5>
-                                <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                                <p>Indulge in a culinary journey of uncompromising quality, where every dish is crafted with the finest ingredients to exceed your expectations.</p>
                             </div>
                         </div>
                     </div>
@@ -197,7 +197,7 @@
                             <div class="p-4">
                                 <i class="fa fa-3x fa-cart-plus text-primary mb-4"></i>
                                 <h5>Online Order</h5>
-                                <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                                <p>Order from our extensive menu online, bringing the flavors of our restaurant directly to your doorstep with just a few clicks.</p>
                             </div>
                         </div>
                     </div>
@@ -206,7 +206,7 @@
                             <div class="p-4">
                                 <i class="fa fa-3x fa-headset text-primary mb-4"></i>
                                 <h5>24/7 Service</h5>
-                                <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                                <p>Experience unparalleled convenience with our round-the-clock service, ensuring you can enjoy our delectable offerings anytime, anywhere.</p>
                             </div>
                         </div>
                     </div>
