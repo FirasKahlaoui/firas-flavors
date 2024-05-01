@@ -65,6 +65,8 @@ $conn->close();
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
+      <!-- Favicon -->
+      <link href="./img/vaisselle.png" rel="icon" />
     <link rel="stylesheet" href="./css/admin.css" />
 
     <!-- Google Web Fonts -->

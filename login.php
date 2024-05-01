@@ -109,7 +109,8 @@ $conn->close();
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/login.css" />
-
+      <!-- Favicon -->
+      <link href="./img/vaisselle.png" rel="icon" />
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
