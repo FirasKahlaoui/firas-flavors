@@ -18,9 +18,14 @@ if ($mysqli->connect_error) {
     die('Connect Error (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error);
 }
 
+$email = '';
 if(isset($_POST['email'])) {
     $email = $mysqli->real_escape_string($_POST['email']);
+} elseif(isset($_GET['email'])) {
+    $email = $mysqli->real_escape_string($_GET['email']);
+}
 
+if($email != '') {
     // SQL query to select data from database
     $sql = "SELECT * FROM reservation WHERE Email = '$email'";
     $result = $mysqli->query($sql);
@@ -198,6 +203,13 @@ if(isset($_POST['email'])) {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
+    var urlParams = new URLSearchParams(window.location.search);
+    var emailParam = urlParams.get('email');
+    if(emailParam) {
+        $("#email").val(emailParam);
+        $("#show").click();
+    }
+
     $("#show").click(function(e){
         e.preventDefault();
         var email = $("#email").val();

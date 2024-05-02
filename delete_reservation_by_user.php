@@ -26,7 +26,7 @@ if(isset($_POST['id'])) {
     $result = $mysqli->query($sql);
 
     if ($result === TRUE) {
-        // Redirect to reservation_by_user.php page
+        
         header("Location: reservation_by_user.php?email=" . $_POST['email']);
     } else {
         echo "Error deleting record: " . $mysqli->error;
