@@ -27,7 +27,6 @@ if(isset($_POST['email'])) {
 
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
-            // Output each row here...
             echo "<tr>";
             echo "<td>{$row['id']}</td>";
             echo "<td>{$row['Name']}</td>";
@@ -35,7 +34,7 @@ if(isset($_POST['email'])) {
             echo "<td>{$row['Date_Time']}</td>";
             echo "<td>{$row['No_Peoples']}</td>";
             echo "<td>{$row['Special']}</td>";
-            echo "<td><form method='POST' action='delete_reservation.php'><input type='hidden' name='id' value='{$row['id']}'><input type='submit' value='Delete'></form></td>";
+            echo "<td><form method='POST' action='delete_reservation_by_user.php'><input type='hidden' name='id' value='{$row['id']}'><input type='submit' value='Delete'></form></td>";
             echo "</tr>";
         }
     } else {
@@ -203,7 +202,7 @@ $(document).ready(function(){
         e.preventDefault();
         var email = $("#email").val();
         $.ajax({
-            url: 'reservation_by_user.php', // Changed to the same page
+            url: 'reservation_by_user.php',
             type: 'post',
             data: {email: email},
             success: function(response){

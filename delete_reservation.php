@@ -25,5 +25,5 @@ $mysqli->query($sql);
 $mysqli->close();
 
 // Redirect back to the reservations page
-header('Location: reservation.php');
+header('Location: admin_dashboard.php');
 ?>
