@@ -27,5 +27,5 @@ The Firas Flavors website aims to provide a seamless and engaging online experie
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/firas-flavors.git
+git clone https://github.com/FirasKahlaoui/firas-flavors.git
 cd firas-flavors
